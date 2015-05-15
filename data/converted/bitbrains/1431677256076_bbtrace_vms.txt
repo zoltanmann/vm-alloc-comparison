@@ -1,0 +1,80 @@
+- VM:
+    Num: 1
+    RAM: 702
+    Cores: 1
+    ID: [0]
+    MIPS: [2599]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 2095
+    Cores: 1
+    ID: [1]
+    MIPS: [2925]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 2097
+    Cores: 1
+    ID: [2]
+    MIPS: [2599]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 8218
+    Cores: 1
+    ID: [3]
+    MIPS: [5851]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 4194
+    Cores: 1
+    ID: [4]
+    MIPS: [2925]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 2097
+    Cores: 1
+    ID: [5]
+    MIPS: [2925]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 2097
+    Cores: 1
+    ID: [6]
+    MIPS: [2599]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 4071
+    Cores: 1
+    ID: [7]
+    MIPS: [2925]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 1300
+    Cores: 1
+    ID: [8]
+    MIPS: [2599]
+    DiskCapacity: 0
+    TSubmit: 0
+- VM:
+    Num: 1
+    RAM: 4194
+    Cores: 1
+    ID: [9]
+    MIPS: [2599]
+    DiskCapacity: 0
+    TSubmit: 0
