@@ -39,7 +39,7 @@ public class Main {
 	
 						bw.write(String.valueOf(ID));bw.newLine();
 						bw.write(String.valueOf(300000));bw.newLine();
-						bw.write(String.valueOf(289));bw.newLine();
+						bw.write(String.valueOf(288));bw.newLine();	// ezt itt korábban véletlenül 289-nek írtam
 						
 						String line = br.readLine();
 						while(line!=null)
