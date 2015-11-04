@@ -1,0 +1,3 @@
+workload: testdata/1446596400561_planetlab_cpuusage.txt
+vms: testdata/1446607574395_vms.txt
+hosts: testdata/1446609677806_hosts.txt
