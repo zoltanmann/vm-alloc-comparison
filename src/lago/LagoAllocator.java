@@ -79,7 +79,7 @@ public class LagoAllocator extends PowerVmAllocationPolicyMigrationAbstract{
 
 
 	private double getUtilizationThreshold() {
-		return 0.0;
+		return 1.0;
 	}
 	
 	
