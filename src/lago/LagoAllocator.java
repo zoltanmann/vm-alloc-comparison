@@ -7,6 +7,7 @@ import org.cloudbus.cloudsim.Host;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.power.PowerHost;
 import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationAbstract;
+import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationStaticThreshold;
 import org.cloudbus.cloudsim.power.PowerVmSelectionPolicy;
 
 public class LagoAllocator extends PowerVmAllocationPolicyMigrationAbstract{
@@ -22,6 +23,7 @@ public class LagoAllocator extends PowerVmAllocationPolicyMigrationAbstract{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 
 	@Override
 	public PowerHost findHostForVm(Vm vm, Set<? extends Host> excludedHosts) {
@@ -75,9 +77,11 @@ public class LagoAllocator extends PowerVmAllocationPolicyMigrationAbstract{
 	    return allocatedHost;
 	}
 
+
 	private double getUtilizationThreshold() {
 		return 0.0;
 	}
+	
 	
 	public static double getHostEnergyEfficiency(PowerHost host) {
 	    return (host.getTotalMips() / host.getMaxPower());

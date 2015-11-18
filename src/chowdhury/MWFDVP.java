@@ -12,23 +12,19 @@ import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.power.PowerHost;
 import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationAbstract;
+import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationStaticThreshold;
 import org.cloudbus.cloudsim.power.PowerVmSelectionPolicy;
 import org.cloudbus.cloudsim.power.lists.PowerVmList;
 
-public class MWFDVP extends PowerVmAllocationPolicyMigrationAbstract{
+public class MWFDVP extends PowerVmAllocationPolicyMigrationStaticThreshold{
 
 	public MWFDVP(List<? extends Host> hostList,
-			PowerVmSelectionPolicy vmSelectionPolicy) {
-		super(hostList, vmSelectionPolicy);
+			PowerVmSelectionPolicy vmSelectionPolicy,
+			double parameter) {
+		super(hostList, vmSelectionPolicy, parameter);
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	protected boolean isHostOverUtilized(PowerHost host) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
 	@Override
 	protected List<Map<String, Object>> getNewVmPlacement(
 			List<? extends Vm> vmsToMigrate,
@@ -36,7 +32,7 @@ public class MWFDVP extends PowerVmAllocationPolicyMigrationAbstract{
 		List<Map<String, Object>> migrationMap = new LinkedList<Map<String, Object>>();
 		
 		PowerVmList.sortByCpuUtilization(vmsToMigrate);
-		Collections.reverse(vmsToMigrate);
+		//Collections.reverse(vmsToMigrate);
 		
 		//vmsToMigrate = Lists.
 		for (Vm vm : vmsToMigrate) {

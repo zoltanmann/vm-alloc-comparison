@@ -15,7 +15,7 @@ import org.cloudbus.cloudsim.examples.power.custom.CustomConstants;
 import org.cloudbus.cloudsim.examples.power.custom.CustomHelper;
 import org.yaml.snakeyaml.Yaml;
 
-public class CustomRunner extends RunnerAbstract {
+public class CustomRunner extends CustomRunnerAbstract {
 
 	public CustomRunner(
 			boolean enableOutput,
