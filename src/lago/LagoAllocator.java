@@ -10,31 +10,28 @@ import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationAbstract;
 import org.cloudbus.cloudsim.power.PowerVmAllocationPolicyMigrationStaticThreshold;
 import org.cloudbus.cloudsim.power.PowerVmSelectionPolicy;
 
-public class LagoAllocator extends PowerVmAllocationPolicyMigrationAbstract{
+public class LagoAllocator extends PowerVmAllocationPolicyMigrationStaticThreshold {
 
 	public LagoAllocator(List<? extends Host> hostList,
-			PowerVmSelectionPolicy vmSelectionPolicy) {
-		super(hostList, vmSelectionPolicy);
+			PowerVmSelectionPolicy vmSelectionPolicy,
+			double parameter) {
+		super(hostList, vmSelectionPolicy, parameter);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	protected boolean isHostOverUtilized(PowerHost host) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
+	}	
 
 	@Override
 	public PowerHost findHostForVm(Vm vm, Set<? extends Host> excludedHosts) {
 	    double bestEnergyEfficiency = Double.MIN_VALUE;
 	    PowerHost allocatedHost = null;
-
+	    
 	    for (PowerHost host : this.<PowerHost>getHostList()) {
-	      if (host.isSuitableForVm(vm)) {
-	        double utilization = getMaxUtilizationAfterAllocation(host, vm);
-	        if ((!vm.isBeingInstantiated()) && utilization > getUtilizationThreshold() || (vm.isBeingInstantiated() && utilization > 1.0)) {
-	          continue;
+			if (excludedHosts.contains(host)) {
+				continue;
+			}	
+	    	if (host.isSuitableForVm(vm)) {
+		        double utilization = getMaxUtilizationAfterAllocation(host, vm);
+		        if ((!vm.isBeingInstantiated()) && utilization > getUtilizationThreshold() || (vm.isBeingInstantiated() && utilization > 1.0)) {
+		          continue;
 	        }
 	        
 	        try {
@@ -75,13 +72,7 @@ public class LagoAllocator extends PowerVmAllocationPolicyMigrationAbstract{
 	    }
 
 	    return allocatedHost;
-	}
-
-
-	private double getUtilizationThreshold() {
-		return 1.0;
-	}
-	
+	}	
 	
 	public static double getHostEnergyEfficiency(PowerHost host) {
 	    return (host.getTotalMips() / host.getMaxPower());

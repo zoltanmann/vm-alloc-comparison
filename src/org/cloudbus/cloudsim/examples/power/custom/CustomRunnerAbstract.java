@@ -295,7 +295,7 @@ Log.setDisabled(false);//LOGBE
 			vmAllocationPolicy = new PowerVmAllocationPolicySimple(hostList);
 		//--------------
 		} else if (vmAllocationPolicyName.equals("lago")) {
-			vmAllocationPolicy = new LagoAllocator(hostList, vmSelectionPolicy);
+			vmAllocationPolicy = new LagoAllocator(hostList, vmSelectionPolicy, 1.0);
 		} else if (vmAllocationPolicyName.equals("chowdm")) {
 			vmAllocationPolicy = new MWFDVP(hostList, vmSelectionPolicy, 0.7);
 		} else if (vmAllocationPolicyName.equals("chowds")) {
