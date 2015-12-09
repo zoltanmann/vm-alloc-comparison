@@ -33,6 +33,10 @@ import org.cloudbus.cloudsim.power.PowerVmSelectionPolicyMinimumMigrationTime;
 import org.cloudbus.cloudsim.power.PowerVmSelectionPolicyMinimumUtilization;
 import org.cloudbus.cloudsim.power.PowerVmSelectionPolicyRandomSelection;
 
+import shi.AbsoluteCapacity;
+import shi.PercentageUtil;
+
+import calavecchia.DemandRisk;
 import chowdhury.MWFDVP;
 import chowdhury.SWFDVP;
 
@@ -302,6 +306,12 @@ Log.setDisabled(false);//LOGBE
 			vmAllocationPolicy = new SWFDVP(hostList, vmSelectionPolicy, 0.7);
 		} else if (vmAllocationPolicyName.equals("guazzone")) {
 			vmAllocationPolicy = new guazzoneBFD(hostList, vmSelectionPolicy, 0.7);
+		} else if (vmAllocationPolicyName.equals("perc")) {
+			vmAllocationPolicy = new PercentageUtil(hostList, vmSelectionPolicy, 0.7);
+		} else if (vmAllocationPolicyName.equals("abs")) {
+			vmAllocationPolicy = new AbsoluteCapacity(hostList, vmSelectionPolicy, 0.7);
+		} else if (vmAllocationPolicyName.equals("calavecchia")) {
+			vmAllocationPolicy = new DemandRisk(hostList, vmSelectionPolicy, 0.7);
 		//--------------
 		} else {
 			System.out.println("Unknown VM allocation policy: " + vmAllocationPolicyName);

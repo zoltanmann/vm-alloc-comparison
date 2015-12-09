@@ -33,10 +33,10 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		boolean enableOutput = true;
 		boolean outputToFile = false;
-		String inputFile = "testconfig";
+		String inputFile = "testconfig\\all";
 		String outputFolder = "output";
-		String workload = "planetlabconfig.txt"; // PlanetLab workload
-		String vmAllocationPolicy = "lago"; // DVFS policy without VM migrations
+		String workload = "controlplanetlabconfig.txt"; // PlanetLab workload
+		String vmAllocationPolicy = "thr"; // DVFS policy without VM migrations
 		String vmSelectionPolicy = "mc";
 		String parameter = "0.8";
 

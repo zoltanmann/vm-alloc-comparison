@@ -145,7 +145,7 @@ public class CustomHelper{
 				try {
 					cloudlet = new Cloudlet(
 							cloudletId,
-							Constants.CLOUDLET_LENGTH,
+							CustomConstants.CLOUDLET_LENGTH,
 							Constants.CLOUDLET_PES,
 							fileSize,
 							outputSize,
