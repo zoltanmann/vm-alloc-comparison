@@ -1,0 +1,3 @@
+workload: testdata/all/control_planetlab_cpuusage.txt
+vms: testdata/all/control_planetlab_vms.txt
+hosts: testdata/all/1200_pm_hosts.txt
