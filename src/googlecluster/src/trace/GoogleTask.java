@@ -1,4 +1,4 @@
-package googlecluster.src.trace;
+package trace;
 
 import java.util.ArrayList;
 

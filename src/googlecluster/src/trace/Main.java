@@ -1,4 +1,4 @@
-package googlecluster.src.trace;
+package trace;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
