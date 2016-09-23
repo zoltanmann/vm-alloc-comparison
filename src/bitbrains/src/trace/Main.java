@@ -116,14 +116,15 @@ public class Main {
 				vmdata.put("DiskCapacity", 0);
 				vmdata.put("Num", 1);
 				
-				vm.put("VM",vmdata);
-				vms.add(vm);
-				
 				bw.write(String.valueOf(ID));bw.newLine();
 				bw.write(String.valueOf(300000));bw.newLine();
 				int num = task.usedCPU.size();
 				if (num<288) num = 288;
 				bw.write(String.valueOf(num));bw.newLine();
+				
+				vmdata.put("EndTime", task.StartTime + (num - 1) * 300000);
+				vm.put("VM",vmdata);
+				vms.add(vm);
 				
 				for(int i:task.usedCPU)
 				{

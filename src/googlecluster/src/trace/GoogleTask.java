@@ -7,6 +7,7 @@ class GoogleTask
 	public boolean complete = false;
 	public String ID;
 	public long  StartTime;
+	public long  EndTime;
 	public double requiredCPU;
 	public double requiredRAM;
 	public double requiredDisk;

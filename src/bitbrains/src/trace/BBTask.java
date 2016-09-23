@@ -5,6 +5,7 @@ import java.util.ArrayList;
 class BBTask {
 		public String ID;
 		public long  StartTime;
+		public long  EndTime;
 		public int cores; 
 		public double requiredCPU;
 		public double requiredRAM;
