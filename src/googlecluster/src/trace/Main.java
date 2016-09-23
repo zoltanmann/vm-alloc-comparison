@@ -236,7 +236,7 @@ public class Main {
 					LinkedList<Integer> ids = new LinkedList<Integer>();
 					ids.add(ID);
 					vmdata.put("ID", ids);
-					vmdata.put("TSubmit", task.TSubmit);
+					vmdata.put("StartTime", task.StartTime);
 					vmdata.put("Cores", 1);
 					LinkedList<Integer> mipss = new LinkedList<Integer>();
 					mipss.add((int)(task.requiredCPU*maxCpu));
@@ -245,14 +245,15 @@ public class Main {
 					vmdata.put("DiskCapacity", (int)(task.requiredDisk*maxDisk));
 					vmdata.put("Num", 1);
 					
-					vm.put("VM",vmdata);
-					vms.add(vm);
-					
 					bw.write(String.valueOf(ID));bw.newLine();
 					bw.write(String.valueOf(300000));bw.newLine();
 					int num = task.usedCPU.size();
 					if (num<288) num = 288;
 					bw.write(String.valueOf(num));bw.newLine();
+					
+					vmdata.put("EndTime", task.StartTime + (num - 1) * 300000);
+					vm.put("VM",vmdata);
+					vms.add(vm);
 					
 					for(int i:task.usedCPU)
 					{

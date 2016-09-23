@@ -4,7 +4,8 @@ import java.util.ArrayList;
 	
 class BBTask {
 		public String ID;
-		public long  TSubmit;
+		public long  StartTime;
+		public long  EndTime;
 		public int cores; 
 		public double requiredCPU;
 		public double requiredRAM;
@@ -15,7 +16,7 @@ class BBTask {
 		public BBTask(String id, long ts, int c, double rc, double rr)
 		{
 			ID=id;
-			TSubmit = ts;
+			StartTime = ts;
 			cores = c;
 			requiredCPU = rc;
 			requiredRAM = rr;

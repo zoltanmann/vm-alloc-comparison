@@ -6,7 +6,8 @@ class GoogleTask
 {
 	public boolean complete = false;
 	public String ID;
-	public long  TSubmit;
+	public long  StartTime;
+	public long  EndTime;
 	public double requiredCPU;
 	public double requiredRAM;
 	public double requiredDisk;
@@ -18,7 +19,7 @@ class GoogleTask
 	public GoogleTask(String id, long ts, double rc, double rr, double rd)
 	{
 		ID=id;
-		TSubmit = ts;
+		StartTime = ts;
 		requiredCPU = rc;
 		requiredRAM = rr;
 		requiredDisk = rd; 

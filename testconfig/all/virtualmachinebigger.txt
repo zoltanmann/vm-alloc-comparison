@@ -1,3 +1,3 @@
-workload: testdata/all/control_planetlab_cpuusage.txt
+workload_cpu: testdata/all/control_planetlab_cpuusage.txt
 vms: testdata/all/sbigger_vms.txt
 hosts: testdata/all/control_planetlab_hosts.txt

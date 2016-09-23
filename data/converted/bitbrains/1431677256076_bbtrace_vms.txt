@@ -5,7 +5,7 @@
     ID: [0]
     MIPS: [2599]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 2095
@@ -13,7 +13,7 @@
     ID: [1]
     MIPS: [2925]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 2097
@@ -21,7 +21,7 @@
     ID: [2]
     MIPS: [2599]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 8218
@@ -29,7 +29,7 @@
     ID: [3]
     MIPS: [5851]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 4194
@@ -37,7 +37,7 @@
     ID: [4]
     MIPS: [2925]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 2097
@@ -45,7 +45,7 @@
     ID: [5]
     MIPS: [2925]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 2097
@@ -53,7 +53,7 @@
     ID: [6]
     MIPS: [2599]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 4071
@@ -61,7 +61,7 @@
     ID: [7]
     MIPS: [2925]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 1300
@@ -69,7 +69,7 @@
     ID: [8]
     MIPS: [2599]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0
 - VM:
     Num: 1
     RAM: 4194
@@ -77,4 +77,4 @@
     ID: [9]
     MIPS: [2599]
     DiskCapacity: 0
-    TSubmit: 0
+    StartTime: 0

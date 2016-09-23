@@ -45,7 +45,7 @@ public class RunEverything {
 			System.out.println(workload[i]);
 			
 			//String workload = "controlplanetlabconfig.txt"; // PlanetLab workload
-			String[] vmAllocationPolicy = new String[] {"thr", "dvfs", "lago", "chowdm", "chowds", "guazzone", "perc", "abs", "calavecchia"};
+			String[] vmAllocationPolicy = new String[] {/*"thr", "dvfs", "lago", "chowdm", "chowds", "guazzone", "perc", "abs",*/ "calavecchia"};
 			//String vmAllocationPolicy = "thr"; // DVFS policy without VM migrations
 			String vmSelectionPolicy = "mc";
 			String parameter = "0.8";
