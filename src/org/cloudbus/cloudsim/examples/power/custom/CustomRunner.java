@@ -49,7 +49,7 @@ public class CustomRunner extends CustomRunnerAbstract {
 		    Yaml yaml = new Yaml();
 		    Map<String,String> filenames = (Map<String,String>)yaml.load(input);
 	
-			cloudletList = CustomHelper.createCloudletListCustom(brokerId, filenames.get("workload"));
+			cloudletList = CustomHelper.createCloudletListCustom(brokerId, filenames.get("workload_cpu"));
 			vmList = CustomHelper.createVmList(brokerId, filenames.get("vms"));
 			hostList = CustomHelper.createHostList(filenames.get("hosts"));
 		} catch (Exception e) {
