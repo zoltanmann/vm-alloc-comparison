@@ -115,8 +115,12 @@ public class CustomHelper{
 		return hostList;
 	}
 
+	public static List<Cloudlet> createCloudletListCustom(int brokerId, String cpuInputFileName)
+			throws FileNotFoundException {
+		return createCloudletListCustom(brokerId, cpuInputFileName, null);
+	}
 	
-	public static List<Cloudlet> createCloudletListCustom(int brokerId, String inputFileName)
+	public static List<Cloudlet> createCloudletListCustom(int brokerId, String cpuInputFileName, String ramInputFileName)
 			throws FileNotFoundException {
 		List<Cloudlet> list = new ArrayList<Cloudlet>();
 
@@ -124,24 +128,39 @@ public class CustomHelper{
 		long outputSize = 300;
 		UtilizationModel utilizationModelNull = new UtilizationModelNull();
 
-		BufferedReader input = new BufferedReader(new FileReader(inputFileName));
+		BufferedReader cpuInput = new BufferedReader(new FileReader(cpuInputFileName));
+		BufferedReader ramInput = null;
 		String line = "";
+		if (ramInputFileName != null)
+			ramInput = new BufferedReader(new FileReader(ramInputFileName));
 		
 		try {
-			while((line = input.readLine()) != null) {
+			while((line = cpuInput.readLine()) != null) {
 				Cloudlet cloudlet = null;
 				int cloudletId = Integer.parseInt(line);
-				int sampleinterval = Integer.parseInt(input.readLine())/1000;
-				int samplenum = Integer.parseInt(input.readLine());
-				double[] data = new double[samplenum];
-				for (int i = 0; i < samplenum; i++) {
-					/*String str = ;
-					System.out.println(cloudletId);
-					System.out.println(str);
-					System.out.println(i);
-					System.out.println();*/
-					data[i] = Integer.parseInt(input.readLine());
+				int cpuSampleinterval = Integer.parseInt(cpuInput.readLine())/1000;
+				int cpuSamplenum = Integer.parseInt(cpuInput.readLine());
+				double[] cpuData = new double[cpuSamplenum];
+				for (int i = 0; i < cpuSamplenum; i++) {
+					cpuData[i] = Integer.parseInt(cpuInput.readLine());
 				}
+				UtilizationModel ramUtilization;
+				if (ramInputFileName != null)
+				{
+					ramInput.readLine();
+					int ramSampleinterval = Integer.parseInt(ramInput.readLine())/1000;
+					int ramSamplenum = Integer.parseInt(ramInput.readLine());
+					double[] ramData = new double[ramSamplenum];
+					for (int i = 0; i < ramSamplenum; i++) {
+						cpuData[i] = Integer.parseInt(ramInput.readLine());
+					}
+					ramUtilization = 
+							new UtilizationModelCustomInMemory(
+							ramData,
+							ramSampleinterval);
+				}
+				else ramUtilization = utilizationModelNull;
+	
 				try {
 					cloudlet = new Cloudlet(
 							cloudletId,
@@ -150,8 +169,8 @@ public class CustomHelper{
 							fileSize,
 							outputSize,
 							new UtilizationModelCustomInMemory(
-									data,
-									sampleinterval), utilizationModelNull, utilizationModelNull);
+									cpuData,
+									cpuSampleinterval), ramUtilization, utilizationModelNull);
 				} catch (Exception e) {
 					e.printStackTrace();
 					System.exit(0);
@@ -161,7 +180,8 @@ public class CustomHelper{
 				list.add(cloudlet);
 			}
 			
-			input.close();
+			cpuInput.close();
+			if (ramInput != null) ramInput.close();
 			
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
