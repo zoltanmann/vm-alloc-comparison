@@ -54,7 +54,7 @@ public class DemandRisk extends PowerVmAllocationPolicyMigrationStaticThreshold{
 		public int compare(PowerHost a, PowerHost b) throws ClassCastException {
 			Integer aMips = a.getTotalMips() ;
 			Integer bMips = b.getTotalMips();
-			int capacity = bMips.compareTo(aMips);	//csökkenõ
+			int capacity = bMips.compareTo(aMips);	//descending
 			
 			return capacity;
 		}
@@ -65,7 +65,7 @@ public class DemandRisk extends PowerVmAllocationPolicyMigrationStaticThreshold{
 			Set<? extends Host> excludedHosts) {
 		List<Map<String, Object>> migrationMap = new LinkedList<Map<String, Object>>();
 		
-		Collections.sort(vmsToMigrate, VmComparator);	// most így rendezzük a vm-eket, egyébként ugyanaz lenne mint az õsosztályban
+		Collections.sort(vmsToMigrate, VmComparator);	// sort VMs with custom comparator, otherwise it would be the same as in the superclass
 		
 		for (Vm vm : vmsToMigrate) {
 			PowerHost allocatedHost = findHostForVm(vm, excludedHosts);

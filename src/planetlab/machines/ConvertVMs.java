@@ -46,7 +46,7 @@ public class ConvertVMs {
 			Map<String,Object> vmwrap = new HashMap<String,Object>();
 			vmwrap.put("VM", vm);
 			
-			vms.add(vmwrap);	//az azonos típusú vm-eket itt fölösleges lenne összevonni, így se foglalnak sok helyet
+			vms.add(vmwrap);	//grouping VMs of the same type together is not necessary here, they don't take up too much space to begin with
 		}
 		
 		//bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(destinationfolder+currentmillis+"_planetlab_cpuusage"+".txt")));

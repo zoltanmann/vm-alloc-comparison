@@ -39,7 +39,7 @@ public class CustomConstants {
 
 	public final static PowerModel[] HOST_POWER = {
 		new PowerModelSpecPowerHpProLiantMl110G4Xeon3040(),
-		new PowerModelSpecPowerHpProLiantMl110G5Xeon3075()/*MOD*///PowerModelSpecPowerHpProLiantMl110G5Xeon3075 volt
+		new PowerModelSpecPowerHpProLiantMl110G5Xeon3075()/*MOD*/// originally PowerModelSpecPowerHpProLiantMl110G5Xeon3075
 	};
 
 }

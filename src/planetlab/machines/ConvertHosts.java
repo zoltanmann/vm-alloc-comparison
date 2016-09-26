@@ -46,7 +46,7 @@ public class ConvertHosts {
 			Map<String,Object> hostwrap = new HashMap<String,Object>();
 			hostwrap.put("Host", host);
 			
-			hosts.add(hostwrap);	//az azonos típusú vm-eket itt fölösleges lenne összevonni, így se foglalnak sok helyet
+			hosts.add(hostwrap);	//grouping VMs of the same type together is not necessary here, they don't take up too much space to begin with
 		}
 		
 		//bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(destinationfolder+currentmillis+"_planetlab_cpuusage"+".txt")));
@@ -54,7 +54,7 @@ public class ConvertHosts {
 		
 
 	    DumperOptions options = new DumperOptions();
-	    options.setWidth(500);	//az autmatikus anchort meg referenciát is lehet hogy érdemes lenne kikapcsolni
+	    options.setWidth(500);	//maybe it would be a good idea to turn off both the automatic anchor and reference of YAML
 		Yaml yaml = new Yaml(options);
 		OutputStreamWriter writer;
 		try {

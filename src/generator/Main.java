@@ -10,15 +10,15 @@ import java.util.Random;
 
 public class Main {
 
-// a megengedett operátorok
+// implemented operators
 public static final char[] operators = {'+', '-', '*', '/', '^', 's', 'p', 'm', 'c'};
 
-// seal karakter, lásd sealexpression
+// seal character, see sealexpression for usage
 public static final char seal = '#';
 
 public static Random rand = new Random();
 
-// array1 minden eleme megegyezik seal-lel
+// all elements of array1 equal to seals
 public static boolean allseal(char[] array1)
 {
 	for(char c: array1)
@@ -28,7 +28,7 @@ public static boolean allseal(char[] array1)
 	return true;
 }
 
-// inputc minden zárójelben lévõ részkifejezését lecseréli seal-re
+// replaces all parenthesized subexpressions of inputc with the seal character
 public static char[] sealexpression(char[] inputc)
 {
 	char[] array1 = new char[inputc.length];
@@ -76,12 +76,12 @@ public static double evalfunc(String input, long T) {
 		char[] inputc = input.toCharArray();
 		char[] array1 = sealexpression(inputc);
 		
-		// ha az egész kifejezés zárójelben van, lefejtjük a külsõ zárójeleket
+		// if the whole expression is in parenthesis, we strip the outermost pair
 		if (allseal(array1)) return evalfunc(input.substring(1,input.length()-1),T);
 		
 		int i = -1;
 		boolean gotroot = false;
-		// ez lesz annak az operátornak a pozíciója, ami mentén részkifejezésekre bontunk
+		// position of the root/pivot operator, by which we'll split into subexpressions
 		int rootpos = -1;
 		
 		while(!gotroot && i<operators.length)
@@ -108,7 +108,7 @@ public static double evalfunc(String input, long T) {
 		}
 		else
 		{
-			// a kifejezést a megfelelõ operátor mentén két részre bontjuk, azokat rekurzívan kiértékeljük
+			// split the expression by the chosen operator, then recursively evaluate the subexpressions
 			String arg0 = input.substring(0,rootpos);
 			String arg1 = input.substring(rootpos + 1,input.length());
 			

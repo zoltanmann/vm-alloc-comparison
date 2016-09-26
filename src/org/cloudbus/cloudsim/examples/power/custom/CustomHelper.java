@@ -92,7 +92,7 @@ public class CustomHelper{
 				int HOST_RAM = (int)host.get("RAM");
 				int HOST_BW = (int)host.get("BandWidth");
 				int HOST_STORAGE = (int)host.get("DiskCapacity");
-				Double[] HOST_POWER = ((ArrayList<Double>)host.get("PowerModel")).toArray(new Double[0]);	//ezt komolyan így kell?
+				Double[] HOST_POWER = ((ArrayList<Double>)host.get("PowerModel")).toArray(new Double[0]);	//isn't there a more simple way?
 				
 				List<Pe> peList = new ArrayList<Pe>();
 				for (int j = 0; j < HOST_PES; j++) {

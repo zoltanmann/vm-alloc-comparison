@@ -42,7 +42,7 @@ public class PercentageUtil extends PowerVmAllocationPolicyMigrationStaticThresh
 		public int compare(PowerHost a, PowerHost b) throws ClassCastException {
 			Double aUtilization = a.getUtilizationOfCpu();
 			Double bUtilization = b.getUtilizationOfCpu();
-			int percentage = bUtilization.compareTo(aUtilization);	//csökkenõ
+			int percentage = bUtilization.compareTo(aUtilization);	//descending
 			
 			return percentage;
 		}
@@ -53,7 +53,7 @@ public class PercentageUtil extends PowerVmAllocationPolicyMigrationStaticThresh
 			Set<? extends Host> excludedHosts) {
 		List<Map<String, Object>> migrationMap = new LinkedList<Map<String, Object>>();
 		
-		Collections.sort(vmsToMigrate, VmComparator);	// most így rendezzük a vm-eket, egyébként ugyanaz lenne mint az õsosztályban
+		Collections.sort(vmsToMigrate, VmComparator);	// sort VMs with custom comparator, otherwise it would be the same as in the superclass
 		
 		for (Vm vm : vmsToMigrate) {
 			PowerHost allocatedHost = findHostForVm(vm, excludedHosts);
@@ -73,7 +73,7 @@ public class PercentageUtil extends PowerVmAllocationPolicyMigrationStaticThresh
 	@Override
 	public PowerHost findHostForVm(Vm vm, Set<? extends Host> excludedHosts) {
 		List<PowerHost> lph = this.<PowerHost> getHostList();
-		Collections.sort(lph, HostComparator);	//rendezzük a hostokat is, aztán sima ffd
+		Collections.sort(lph, HostComparator);	//sort the hosts too, then do a simple ffd
 		for (PowerHost host : lph) {
 			if (excludedHosts.contains(host)) {
 				continue;
