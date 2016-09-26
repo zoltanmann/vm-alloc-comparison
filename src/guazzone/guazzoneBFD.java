@@ -39,21 +39,21 @@ public class guazzoneBFD extends PowerVmAllocationPolicyMigrationStaticThreshold
 	{
 		@Override
 		public int compare(PowerHost a, PowerHost b) throws ClassCastException {
-			Integer aUtilization = (a.getUtilizationOfCpu()==0)?0:1;	//félrevezetõ a neve, de tényleg ez a helyes metódus
-			Integer bUtilization = (b.getUtilizationOfCpu()==0)?0:1;	//onnan tudom hogy a CloudSim getSwitchedOffHosts metódusa is ezt hívja
-			int cUtilization = bUtilization.compareTo(aUtilization);	//csökkenõ
+			Integer aUtilization = (a.getUtilizationOfCpu()==0)?0:1;	//its name is misleading, but this is actually the correct method to use
+			Integer bUtilization = (b.getUtilizationOfCpu()==0)?0:1;	//we know this because the  getSwitchedOffHosts method of CloudSim calls this too
+			int cUtilization = bUtilization.compareTo(aUtilization);	//descending
 			
 			if (cUtilization!=0) return cUtilization;
 			
 			Integer aTotal = a.getTotalMips();
 			Integer bTotal = b.getTotalMips();
-			int cTotal = bTotal.compareTo(aTotal);	//csökkenõ
+			int cTotal = bTotal.compareTo(aTotal);	//descending
 			
 			if (cTotal!=0) return cTotal;
 			
 			Double aIdle = a.getPowerModel().getPower(0);	//idle power consumption
 			Double bIdle = b.getPowerModel().getPower(0);
-			int cIdle = aIdle.compareTo(bIdle);	//növekvõ
+			int cIdle = aIdle.compareTo(bIdle);	//ascending
 			
 			return cIdle;
 		}
@@ -64,7 +64,7 @@ public class guazzoneBFD extends PowerVmAllocationPolicyMigrationStaticThreshold
 			Set<? extends Host> excludedHosts) {
 		List<Map<String, Object>> migrationMap = new LinkedList<Map<String, Object>>();
 		
-		Collections.sort(vmsToMigrate, VmComparator);	// most így rendezzük a vm-eket, egyébként ugyanaz lenne mint az õsosztályban
+		Collections.sort(vmsToMigrate, VmComparator);	// sort VMs with custom comparator, otherwise it would be the same as in the superclass
 		
 		for (Vm vm : vmsToMigrate) {
 			PowerHost allocatedHost = findHostForVm(vm, excludedHosts);
@@ -84,7 +84,7 @@ public class guazzoneBFD extends PowerVmAllocationPolicyMigrationStaticThreshold
 	@Override
 	public PowerHost findHostForVm(Vm vm, Set<? extends Host> excludedHosts) {
 		List<PowerHost> lph = this.<PowerHost> getHostList();
-		Collections.sort(lph, HostComparator);	//rendezzük a hostokat is, aztán sima ffd
+		Collections.sort(lph, HostComparator);	//sort the hosts too, then do a simple ffd
 		for (PowerHost host : lph) {
 			if (excludedHosts.contains(host)) {
 				continue;

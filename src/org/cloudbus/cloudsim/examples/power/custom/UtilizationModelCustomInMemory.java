@@ -27,7 +27,7 @@ public class UtilizationModelCustomInMemory implements UtilizationModel {
 		for (int i = 0; i < n; i++) {
 			this.data[i] = data[i] / 100.0;
 		}
-		data[n - 1] = data[n - 2];	//A PlanetLab-es példában az utolós sample kettõzve van
+		data[n - 1] = data[n - 2];	//the last sample in the PlanetLab example is duplicated
 	}
 
 	/*
@@ -36,7 +36,7 @@ public class UtilizationModelCustomInMemory implements UtilizationModel {
 	 */
 	@Override
 	public double getUtilization(double time) {
-		//if (time > getSchedulingInterval() * (data.length - 1)) return 0;	//A PlanetLab-es példában az utolós sample kettõzve van
+		//if (time > getSchedulingInterval() * (data.length - 1)) return 0;	//the last sample in the PlanetLab example is duplicated
 		if (time % getSchedulingInterval() == 0) {
 			return data[(int) time / (int) getSchedulingInterval()];
 		}

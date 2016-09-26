@@ -181,7 +181,7 @@ public abstract class CustomRunnerAbstract {
 
 			broker.submitVmList(vmList);
 			broker.submitCloudletList(cloudletList);
-Log.setDisabled(true);//LOGKI
+Log.setDisabled(true);//LOGOFF
 			CloudSim.terminateSimulation(Constants.SIMULATION_LIMIT);
 			double lastClock = CloudSim.startSimulation();
 
@@ -189,7 +189,7 @@ Log.setDisabled(true);//LOGKI
 			Log.printLine("Received " + newList.size() + " cloudlets");
 
 			CloudSim.stopSimulation();
-Log.setDisabled(false);//LOGBE
+Log.setDisabled(false);//LOGON
 			Helper.printResults(
 					datacenter,
 					vmList,

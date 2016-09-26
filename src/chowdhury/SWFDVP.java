@@ -64,7 +64,7 @@ public class SWFDVP extends PowerVmAllocationPolicyMigrationStaticThreshold {
 			if (host.isSuitableForVm(vm)) {
 				if (getUtilizationOfCpuMips(host) != 0 && isHostOverUtilizedAfterAllocation(host, vm)) {
 					continue;
-				}	//ez most akkor végül is kell?
+				}	//is this really necessary?
 
 				try {
 					double powerAfterAllocation = getPowerAfterAllocation(host, vm);
